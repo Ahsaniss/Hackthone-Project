@@ -2,10 +2,9 @@ import os
 import streamlit as st
 import pandas as pd
 
-from datetime import datetime, timedelta
+from dotenv import load_dotenv
 import plotly.graph_objects as go
 from openai import OpenAI
-
 import streamlit as st
 import pandas as pd
 
