@@ -15,199 +15,322 @@ st.set_page_config(
 )
 st.markdown("""
 <style>
-    /* Light and modern color scheme */
+    /* Updated Modern Color Palette */
     :root {
-        /* Core colors */
-        --primary-dark: #333333;      /* Dark text for contrast */
-        --primary-medium: #555555;   /* Medium gray for secondary text */
-        --primary-light: #F5F5F5;    /* Light background */
-        --text-color: #333333;        /* Dark text for readability */
-        --accent: #4CAF50;            /* Green accent for highlights */
-        --warning: #FFA000;           /* Yellow for warnings */
-        --danger: #D32F2F;            /* Red for danger/errors */
-
-        /* Additional colors */
-        --white: #FFFFFF;
-        --gray-100: #F5F5F5;
-        --gray-300: #E0E0E0;
-        --gray-500: #9E9E9E;
-        --gray-700: #616161;
-        --gray-900: #212121;
-
-        /* Shadows */
-        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+        --primary: #6366F1;       /* Indigo - main app color */
+        --primary-light: #EEF2FF; /* Light indigo background */
+        --primary-dark: #4F46E5;  /* Darker indigo for hover states */
+        --secondary: #10B981;     /* Emerald green for success states */
+        --secondary-light: #ECFDF5; /* Light green background */
+        --warning: #F59E0B;       /* Amber for warnings/alerts */
+        --warning-light: #FEF3C7; /* Light amber background */
+        --danger: #EF4444;        /* Red for high glucose alerts */
+        --danger-light: #FEE2E2;  /* Light red background */
+        --dark: #111827;          /* Very dark gray for important text */
+        --gray-900: #1F2937;      /* Dark gray for headings */
+        --gray-700: #374151;      /* Medium-dark gray for subheadings */
+        --gray-500: #6B7280;      /* Medium gray for secondary text */
+        --gray-300: #D1D5DB;      /* Light gray for borders */
+        --gray-100: #F3F4F6;      /* Very light gray for backgrounds */
+        --white: #FFFFFF;         /* White */
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
         --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
 
-    /* App background */
-    .stApp {
-        background-color: var(--primary-light);
-    }
-
-    /* Main container styling */
-    .main .block-container {
-        background-color: var(--white);
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: var(--shadow);
-    }
-
-    /* Sidebar styling */
-    section[data-testid="stSidebar"] {
-        background-color: var(--white);
-        border-right: 1px solid var(--gray-300);
-    }
-
-    .sidebar .sidebar-content {
-        background-color: var(--white);
-        border: none;
-    }
-
-    /* Typography */
+    /* Typography System */
     body {
-        color: var(--text-color);
         font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--gray-900);
         line-height: 1.5;
     }
 
-    h1, h2, h3, h4, h5, h6, .main-header, .sub-header {
-        color: var(--text-color);
+    .main-header {
+        font-size: 2.25rem;
+        font-weight: 800;
+        color: var(--dark);
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--gray-300);
+        letter-spacing: -0.025em;
     }
 
-    p, li, span, label, div {
-        color: var(--text-color);
+    .sub-header {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.015em;
     }
 
-    a {
-        color: var(--accent);
-    }
-
-    /* Card components */
+    /* Updated Card Components */
     .metric-card {
         background-color: var(--white);
-        border: 1px solid var(--gray-300);
-        color: var(--text-color);
+        padding: 1.5rem;
+        border-radius: 0.75rem;
         box-shadow: var(--shadow);
-        border-radius: 8px;
-        padding: 1rem;
+        transition: all 0.2s ease;
+        border: 1px solid var(--gray-300);
+        text-align: center;
     }
 
     .metric-card:hover {
-        border-color: var(--accent);
+        transform: translateY(-3px);
         box-shadow: var(--shadow-md);
+        border-color: var(--primary);
     }
 
     .metric-card h3 {
-        color: var(--accent);
+        color: var(--gray-500);
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
     }
 
     .metric-card h2 {
-        color: var(--text-color);
+        color: var(--primary-dark);
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0.75rem 0;
+        letter-spacing: -0.025em;
     }
 
-    /* Information boxes */
-    .info-box, .recommendation-box, .disclaimer {
-        background-color: var(--white);
-        border: 1px solid var(--gray-300);
-        color: var(--text-color);
-        border-radius: 8px;
+    /* Information Box Styles */
+    .info-box {
+        background-color: var(--primary-light);
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        margin-bottom: 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .disclaimer {
+        background-color: var(--warning-light);
         padding: 1rem;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(245, 158, 11, 0.2);
+        font-size: 0.9rem;
+        margin-top: 2rem;
+    }
+
+    .recommendation-box {
+        background-color: var(--secondary-light);
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        margin-top: 1.25rem;
+        box-shadow: var(--shadow-sm);
+    }
+
+    /* Modernized Sidebar Styling */
+    .sidebar-content {
+        padding: 1.5rem 1.25rem;
+        background-color: var(--white);
+        border-radius: 0.75rem;
         margin-bottom: 1rem;
-    }
-
-    /* Table styling */
-    .stDataFrame {
         border: 1px solid var(--gray-300);
-        border-radius: 8px;
+        box-shadow: var(--shadow-sm);
     }
 
-    .stDataFrame th {
-        background-color: var(--gray-100);
-        color: var(--text-color);
+    .sidebar-content h3 {
+        color: var(--gray-900);
+        font-weight: 600;
         border-bottom: 1px solid var(--gray-300);
+        padding-bottom: 0.75rem;
+        margin-bottom: 1.25rem;
     }
 
-    .stDataFrame td {
-        border-top: 1px solid var(--gray-300);
-        color: var(--text-color);
-    }
-
-    /* Form controls */
-    input, select, textarea, .stTextInput>div>div>input, .stSelectbox>div>div>select, .stTextArea>div>div>textarea {
-        background-color: var(--white) !important;
-        color: var(--text-color) !important;
-        border: 1px solid var(--gray-300) !important;
-        border-radius: 4px;
-    }
-
-    /* Button styling */
+    /* Button Styling */
     .stButton>button {
-        background-color: var(--accent);
-        color: var(--white);
+        background-color: var(--primary);
+        color: white;
+        border-radius: 0.5rem;
         border: none;
+        padding: 0.625rem 1.25rem;
         font-weight: 500;
-        border-radius: 4px;
+        transition: all 0.2s ease;
+        box-shadow: var(--shadow-sm);
     }
 
     .stButton>button:hover {
-        background-color: #45a049; /* Slightly darker green */
+        background-color: var(--primary-dark);
         transform: translateY(-2px);
+        box-shadow: var(--shadow);
+    }
+
+    /* Form Controls */
+    input, select, textarea {
+        border-radius: 0.5rem !important;
+        border: 1px solid var(--gray-300) !important;
+        padding: 0.5rem 0.75rem !important;
+        transition: all 0.15s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border-color: var(--primary) !important;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
+        outline: none !important;
     }
 
     /* Tabs styling */
     .stTabs [data-baseweb="tab-list"] {
-        background-color: var(--white);
-        border-bottom: 1px solid var(--gray-300);
+        gap: 0.25rem;
+        background-color: var(--gray-100);
+        padding: 0.25rem;
+        border-radius: 0.5rem;
     }
 
     .stTabs [data-baseweb="tab"] {
-        color: var(--text-color);
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        background-color: transparent;
     }
 
     .stTabs [aria-selected="true"] {
-        background-color: var(--accent);
-        color: var(--white) !important;
+        background-color: var(--primary);
+        color: white !important;
     }
 
-    /* Glucose status indicators */
+    /* Glucose reading status indicators */
+    .glucose-value {
+        font-size: 1.125rem;
+        font-weight: 600;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        display: inline-block;
+    }
+
     .glucose-high {
         color: var(--danger);
-        background-color: var(--white);
-        border: 1px solid var(--danger);
+        background-color: var(--danger-light);
     }
 
     .glucose-normal {
-        color: var(--accent);
-        background-color: var(--white);
-        border: 1px solid var(--accent);
+        color: var(--secondary);
+        background-color: var(--secondary-light);
     }
 
     .glucose-low {
         color: var(--warning);
-        background-color: var(--white);
-        border: 1px solid var(--warning);
+        background-color: var(--warning-light);
     }
 
-    /* Chart container */
-    [data-testid="stPlotlyChart"] > div {
-        background-color: var(--white);
+    /* Table styling */
+    .stDataFrame {
+        border-radius: 0.75rem;
+        overflow: hidden;
         border: 1px solid var(--gray-300);
-        border-radius: 8px;
+        box-shadow: var(--shadow-sm);
     }
 
-    /* Other widgets */
-    [data-testid="stSlider"] > div {
-        color: var(--text-color);
+    .stDataFrame th {
+        background-color: var(--primary-light);
+        color: var(--primary-dark);
+        font-weight: 600;
+        padding: 0.75rem 1rem;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
     }
 
-    .stCheckbox label {
-        color: var(--text-color);
+    .stDataFrame td {
+        padding: 0.75rem 1rem;
+        border-top: 1px solid var(--gray-300);
     }
 
-    /* Radio buttons */
-    .stRadio > div {
-        color: var(--text-color);
+    /* Chart Container */
+    [data-testid="stPlotlyChart"] > div {
+        border-radius: 0.75rem;
+        background-color: white;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--gray-300);
+        padding: 1.25rem;
+        transition: all 0.2s ease;
+    }
+
+    [data-testid="stPlotlyChart"] > div:hover {
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-light);
+    }
+
+    /* Reading log items */
+    .log-item {
+        background-color: white;
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+        margin-bottom: 0.75rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-300);
+        transition: all 0.2s ease;
+    }
+
+    .log-item:hover {
+        transform: translateX(2px);
+        border-color: var(--primary);
+        box-shadow: var(--shadow);
+    }
+
+    .log-high {
+        border-left: 3px solid var(--danger);
+    }
+
+    .log-normal {
+        border-left: 3px solid var(--secondary);
+    }
+
+    .log-low {
+        border-left: 3px solid var(--warning);
+    }
+
+    /* Progress indicators */
+    progress {
+        border-radius: 9999px;
+        height: 0.5rem;
+        overflow: hidden;
+    }
+
+    progress::-webkit-progress-bar {
+        background-color: var(--gray-100);
+        border-radius: 9999px;
+    }
+
+    progress::-webkit-progress-value {
+        background-color: var(--primary);
+        border-radius: 9999px;
+    }
+
+    /* Focus styling for accessibility */
+    :focus {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+    }
+
+    /* Custom checkbox styling */
+    [data-testid="stCheckbox"] > div {
+        display: flex;
+        align-items: center;
+    }
+
+    [data-testid="stCheckbox"] label {
+        font-weight: 500;
+        color: var(--gray-700);
+    }
+
+    /* App container spacing */
+    .main .block-container {
+        padding: 2rem 3rem;
+    }
+
+    @media (max-width: 768px) {
+        .main .block-container {
+            padding: 1.5rem;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
