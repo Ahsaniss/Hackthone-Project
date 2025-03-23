@@ -1,67 +1,92 @@
-Gluco Guide - AI-Powered Diabetes Assistant
-Overview
+# Gluco Guide - AI-Powered Diabetes Assistant
+
+## Overview
 Gluco Guide is an AI-powered web application designed to help individuals manage diabetes more effectively. The app allows users to log their glucose readings, track trends, and receive personalized meal recommendations based on their glucose levels and dietary preferences. It also provides a dashboard for visualizing glucose trends and statistics.
 
-This project is built using Streamlit for the frontend, OpenAI's API for AI-powered recommendations, and Plotly for data visualization. It is designed to be user-friendly, visually appealing, and highly functional.
+This project is built using **Streamlit** for the frontend, **OpenAI's API** for AI-powered recommendations, and **Plotly** for data visualization. It is designed to be user-friendly, visually appealing, and highly functional.
 
-Features
-Glucose Logging:
+## Features
 
-Log glucose readings with date, time, and notes.
+### Glucose Logging
+- Log glucose readings with date, time, and notes.
+- View recent readings in a clean and organized format.
 
-View recent readings in a clean and organized format.
+### Dashboard
+- View the latest glucose reading, 7-day average, and target range adherence.
+- Visualize glucose trends over time with interactive charts.
 
-Dashboard:
+### AI Meal Planner
+- Get personalized meal recommendations based on glucose levels and dietary preferences.
+- Specify dietary restrictions, cuisine preferences, and foods you'd like to eat.
 
-View the latest glucose reading, 7-day average, and target range adherence.
+### History & Trends
+- View a detailed history of glucose readings.
+- Analyze glucose trends by time of day and export data as a CSV file.
 
-Visualize glucose trends over time with interactive charts.
+### User Profile
+- Set a target glucose range.
+- Specify diabetes type (Type 1, Type 2, Gestational, or Pre-diabetes).
 
-AI Meal Planner:
+## Technologies Used
 
-Get personalized meal recommendations based on glucose levels and dietary preferences.
+### Frontend:
+- **Streamlit**: A Python library for building interactive web apps.
+- **HTML/CSS**: Custom styling for a modern and responsive design.
 
-Specify dietary restrictions, cuisine preferences, and foods you'd like to eat.
+### Backend:
+- **Python**: Core programming language for the app.
+- **Pandas**: For data manipulation and storage.
+- **Plotly**: For interactive data visualization.
 
-History & Trends:
+### AI Integration:
+- **OpenAI API**: For generating personalized meal recommendations.
 
-View a detailed history of glucose readings.
+### Environment Management:
+- **Dotenv**: For managing environment variables (e.g., API keys).
 
-Analyze glucose trends by time of day and export data as a CSV file.
+## How to Run the Project
 
-User Profile:
+### Prerequisites
+- **Python 3.8+**: Ensure Python is installed on your system.
+- **API Key**: Obtain an API key from OpenAI and add it to a `.env` file.
+- **Dependencies**: Install the required Python packages.
 
-Set a target glucose range.
+### Installation Steps
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-repo/gluco-guide.git
+   cd gluco-guide
+   ```
 
-Specify diabetes type (Type 1, Type 2, Gestational, or Pre-diabetes).
+2. **Create and Activate a Virtual Environment:**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On macOS/Linux
+   venv\Scripts\activate      # On Windows
+   ```
 
-Technologies Used
-Frontend:
+3. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Streamlit: A Python library for building interactive web apps.
+4. **Set Up Environment Variables:**
+   - Create a `.env` file in the project root directory and add your OpenAI API key:
+     ```
+     OPENAI_API_KEY=your_openai_api_key
+     ```
 
-HTML/CSS: Custom styling for a modern and responsive design.
+5. **Run the Application:**
+   ```bash
+   streamlit run app.py
+   ```
 
-Backend:
+## Contributing
+Contributions are welcome! Feel free to fork the project, submit issues, or make pull requests.
 
-Python: Core programming language for the app.
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-Pandas: For data manipulation and storage.
+## Contact
+For any questions or feedback, feel free to reach out!
 
-Plotly: For interactive data visualization.
-
-AI Integration:
-
-OpenAI API: For generating personalized meal recommendations.
-
-Environment Management:
-
-Dotenv: For managing environment variables (e.g., API keys).
-
-How to Run the Project
-Prerequisites
-Python 3.8+: Ensure Python is installed on your system.
-
-API Key: Obtain an API key from OpenAI and add it to a .env file.
-
-Dependencies: Install the required Python packages.
