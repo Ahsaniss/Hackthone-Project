@@ -419,7 +419,7 @@ elif app_mode == "Log Glucose":
         st.markdown("<div class='info-box'>Regular logging helps identify patterns and improve management.</div>",
                     unsafe_allow_html=True)
        
-        date = st.date_input("Date", datetime.now())
+        
         time_period = st.selectbox("Time Period",
                                    ["Morning (Before Breakfast)",
                                     "Morning (After Breakfast)",
