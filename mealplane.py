@@ -430,7 +430,7 @@ elif app_mode == "Log Glucose":
                                     "Bedtime",
                                     "Other"])
 
-        current_time = datetime.now().strftime("%H:%M")
+        
        
         reading = st.number_input("Glucose Reading (mg/dL)", min_value=40, max_value=500, step=1, value=120)
         notes = st.text_area("Notes (Optional)", placeholder="Exercise, stress, illness, etc.")
